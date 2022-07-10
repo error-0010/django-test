@@ -11,36 +11,37 @@
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
 </head>
 <body>
+
+    
+
     
     <div class="conteiner">
         <h2 class="text-center mt-5">Lista de usuarios</h2>
         <table class="table">
             <thead>
               <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <th scope="col">Codigo</th>
+                <th scope="col">Imagen</th>
+                <th scope="col">Usuario</th>
+                <th scope="col">Profesion</th>
+                <th scope="col">Genero</th>
+                <th scope="col">Ciudad</th>
               </tr>
             </thead>
             <tbody>
+
+              {% for usr in get_usuarios %}
               <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
+                
+                <td>{{usr.codigo}}</td>
+                <td><image src="{{ usr.photo.url }}" width="40" height="40" style="border-radius:50px;"></td>
+                <td>{{usr.nombre}}</td>
+                <td>{{usr.profesion}}</td>
+                <td>{{usr.genero}}</td>
+                <td>{{usr.ciudad}}</td>
               </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
-              </tr>
+              {% endfor %}
+              
             </tbody>
         </table>
     </div>
